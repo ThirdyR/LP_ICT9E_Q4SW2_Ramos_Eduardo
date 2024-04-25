@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SW2</title>
+<style>
+    body {
+        background-color:skyblue;
+        font-family: sans-serif;
+    }
+    .calculator {
+        width: 350px;
+        margin: 100px auto;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .calculator input[type="number"] {
+        width: calc(100% - 10px);
+        margin-bottom: 25px;
+        padding: 10px;
+    }
+    .calculator button {
+        width: calc(50% - 5px);
+        padding: 20px;
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="number" id="x" placeholder="X">
+    <input type="number" id="y" placeholder="Y">
+    <button onclick="computeProduct()">Compute For Product</button>
+    <button onclick="computePower()">Compute For Power</button>
+    <button onclick="computeRemainder()">Compute For Remainder</button>
+    <button onclick="checkEquality()">Check For Equality</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function computeProduct() {
+        var x = parseFloat(document.getElementById("x").value);
+        var y = parseFloat(document.getElementById("y").value);
+        var product = x * y;
+        document.getElementById("result").innerText = "X and Y is: " + product;
+    }
+
+    function computePower() {
+        var x = parseFloat(document.getElementById("x").value);
+        var y = parseFloat(document.getElementById("y").value);
+        var power = Math.pow(x, y);
+        document.getElementById("result").innerText = "X to the power of Y is: " + power;
+    }
+
+    function computeRemainder() {
+        var x = parseFloat(document.getElementById("x").value);
+        var y = parseFloat(document.getElementById("y").value);
+        var remainder = x % y;
+        document.getElementById("result").innerText = "X divided by Y is: " + remainder;
+    }
+
+    function checkEquality() {
+        var x = parseFloat(document.getElementById("x").value);
+        var y = parseFloat(document.getElementById("y").value);
+        var equality = x === y ? "x is equal to y" : "X is not equal to Y";
+        document.getElementById("result").innerText = equality;
+    }
+</script>
+
+</body>
+</html>
